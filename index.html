@@ -39,10 +39,22 @@
 <div class="saved-actions"><button id="wantFilter"><strong id="wantCount">0</strong><span data-t="want">Want to visit</span></button><button id="visitedFilter"><strong id="visitedCount">0</strong><span data-t="visited">Visited</span></button></div>
 </section>
 <section id="travel" class="section tools"><span class="kicker" data-t="tools">TRAVEL TOOLS</span><h2 data-t="move">Everything you need to move around</h2><div class="tool-grid">
-<article><i>🚌</i><h3 data-t="bus">Bus guide</h3><p data-t="busText">Routes, terminals, estimated fares and travel times.</p><small data-t="soon">COMING SOON</small></article>
+<article><i>🚌</i><h3 data-t="bus">Bus guide</h3><p data-t="busText">Routes, terminals, estimated fares and travel times.</p><a class="tool-link" href="#bus-guide" data-t="openBus">OPEN BUS GUIDE →</a></article>
 <article><i>🚙</i><h3 data-t="car">Rent a car</h3><p data-t="carText">Compare trusted options for cities, beaches and rural roads.</p><small data-t="soon">COMING SOON</small></article>
 <article><i>📱</i><h3 data-t="esim">eSIM & data</h3><p data-t="esimText">Arrive connected with packages selected for El Salvador.</p><small data-t="soon">COMING SOON</small></article>
 </div></section>
+<section id="bus-guide" class="bus-guide section">
+<div class="bus-hero"><div><span class="kicker" data-t="busKicker">GET AROUND FOR LESS</span><h2 data-t="busTitle">El Salvador bus guide</h2><p data-t="busIntro">Find practical public bus and tourist shuttle options for popular routes. Prices and times are estimates—always confirm before boarding.</p></div><div class="bus-tip"><b>💵 <span data-t="cashTitle">Carry small USD bills</span></b><span data-t="cashText">Most public buses are cash-only.</span></div></div>
+<div class="bus-controls"><label>⌕ <input id="busSearch" type="search" placeholder="Search origin or destination…"></label><select id="busMode"><option value="all">All transport</option><option value="public">Public bus</option><option value="shuttle">Tourist shuttle</option></select></div>
+<div id="busResults" class="bus-results"></div>
+<div class="bus-advice">
+<article><b>☀️ <span data-t="dayTitle">Travel during daylight</span></b><p data-t="dayText">Leave early, especially when a trip requires transfers or serves rural areas.</p></article>
+<article><b>🗣️ <span data-t="confirmTitle">Confirm before boarding</span></b><p data-t="confirmText">Say or show your destination to the driver and ask where to get off.</p></article>
+<article><b>🎒 <span data-t="bagTitle">Keep valuables close</span></b><p data-t="bagText">Keep documents, phone and money with you—not on a roof rack or unattended.</p></article>
+</div>
+<p class="bus-disclaimer" data-t="busDisclaimer">Route numbers, stops, fares and departure times can change without notice. Confirm at your accommodation, terminal or with the driver on the day of travel.</p>
+<div class="bus-sources"><b data-t="sources">Information sources:</b> <a href="https://spring-bus.com/buses/el-salvador/" target="_blank" rel="noopener">Spring Bus</a> · <a href="https://centrocoasting.com/" target="_blank" rel="noopener">CentroCoasting</a> · <a href="https://cartorux.com/" target="_blank" rel="noopener">Cartorux</a></div>
+</section>
 <section id="business" class="business"><div><span class="kicker">LOCAL BUSINESSES</span><h2 data-t="own">Do you own a place travelers should discover?</h2><p data-t="ownerText">Verified profiles, direct contact details and featured map placement are coming soon.</p></div><a class="white" href="mailto:partners@elsalvadortripguide.com" data-t="join">Join partner waitlist</a></section>
 </main>
 <div id="modal" class="modal" aria-hidden="true"><button class="backdrop" data-close></button><article class="dialog"><button class="close" data-close>×</button><div id="photo"></div><div class="dialog-body"><small id="tag"></small><h2 id="placeName"></h2><b id="location"></b><p id="description"></p><div class="actions"><button id="wantBtn" class="outline"></button><button id="visitedBtn" class="outline"></button><a id="directions" class="primary" target="_blank" rel="noopener" data-t="directions">Directions</a></div></div></article></div>
