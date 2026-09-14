@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore El Salvador with an interactive bilingual map and travel-planning tools.">
+<title>El Salvador Trip Guide</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+<a class="brand" href="#"><span class="logo">ES</span><span>El Salvador<br><b>Trip Guide</b></span></a>
+<nav><a href="#explore" data-t="explore">Explore</a><a href="#travel" data-t="transport">Transport</a><a href="#business" data-t="business">For businesses</a></nav>
+<button id="language" class="outline">ES</button>
+</header>
+<main>
+<section class="hero">
+<div><span class="kicker" data-t="kicker">THE LITTLE COUNTRY WITH A BIG SOUL</span><h1 data-t="title">Find your next unforgettable place in El Salvador.</h1><p data-t="intro">Beaches, volcanoes, colorful towns and incredible food—all on one interactive map made for international travelers.</p><a class="primary" href="#explore" data-t="open">Explore the map</a></div>
+<div class="numbers"><p><strong id="total">18</strong><span data-t="curated">curated places</span></p><p><strong>14</strong><span data-t="departments">departments</span></p><p><strong>2</strong><span data-t="languages">languages</span></p></div>
+</section>
+<section id="explore" class="section">
+<div class="heading"><div><span class="kicker" data-t="plan">PLAN YOUR TRIP</span><h2 data-t="mapTitle">Explore places on the map</h2></div><p data-t="mapHelp">Click a marker or place card for details.</p></div>
+<div class="filters">
+<label>⌕ <input id="search" type="search" placeholder="Search a place or city…"></label>
+<select id="category"></select><select id="department"></select><button id="reset" class="outline" data-t="reset">Reset</button>
+</div>
+<div class="map-shell"><div id="map"></div><aside><div class="result-head"><b id="count"></b> <span data-t="found">places found</span></div><div id="cards"></div></aside></div>
+</section>
+<section class="saved">
+<div><span class="kicker" data-t="yourTrip">YOUR TRIP</span><h2 data-t="save">Save places as you explore</h2></div>
+<div class="saved-actions"><button id="wantFilter"><strong id="wantCount">0</strong><span data-t="want">Want to visit</span></button><button id="visitedFilter"><strong id="visitedCount">0</strong><span data-t="visited">Visited</span></button></div>
+</section>
+<section id="travel" class="section tools"><span class="kicker" data-t="tools">TRAVEL TOOLS</span><h2 data-t="move">Everything you need to move around</h2><div class="tool-grid">
+<article><i>🚌</i><h3 data-t="bus">Bus guide</h3><p data-t="busText">Routes, terminals, estimated fares and travel times.</p><small data-t="soon">COMING SOON</small></article>
+<article><i>🚙</i><h3 data-t="car">Rent a car</h3><p data-t="carText">Compare trusted options for cities, beaches and rural roads.</p><small data-t="soon">COMING SOON</small></article>
+<article><i>📱</i><h3 data-t="esim">eSIM & data</h3><p data-t="esimText">Arrive connected with packages selected for El Salvador.</p><small data-t="soon">COMING SOON</small></article>
+</div></section>
+<section id="business" class="business"><div><span class="kicker">LOCAL BUSINESSES</span><h2 data-t="own">Do you own a place travelers should discover?</h2><p data-t="ownerText">Verified profiles, direct contact details and featured map placement are coming soon.</p></div><a class="white" href="mailto:partners@elsalvadortripguide.com" data-t="join">Join partner waitlist</a></section>
+</main>
+<div id="modal" class="modal" aria-hidden="true"><button class="backdrop" data-close></button><article class="dialog"><button class="close" data-close>×</button><div id="photo"></div><div class="dialog-body"><small id="tag"></small><h2 id="placeName"></h2><b id="location"></b><p id="description"></p><div class="actions"><button id="wantBtn" class="outline"></button><button id="visitedBtn" class="outline"></button><a id="directions" class="primary" target="_blank" rel="noopener" data-t="directions">Directions</a></div></div></article></div>
+<footer><div class="brand"><span class="logo">ES</span><b>El Salvador Trip Guide</b></div><p>© 2026 · <span data-t="footer">Made for curious travelers.</span></p></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="/app.js"></script>
+</body></html>
