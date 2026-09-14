@@ -43,7 +43,12 @@ const categoryEN={"Water":"Beaches, Lakes & Rivers","Airport":"Airport","Ruins":
 const categoryES={"Water":"Escapadas acuáticas","Nature":"Naturaleza","Culture":"Cultura","Town":"Pueblos y ciudades","Coffee / Food":"Café y comida","Hotel":"Hotel","Bar / Club":"Bares y discotecas","Activity":"Actividades","Airport":"Aeropuerto","Ruins":"Ruinas"};
 const categoryLabel=value=>lang==="es"?(categoryES[value]||value):(categoryEN[value]||value);
 let lang=localStorage.estgLang||"en",want=new Set(JSON.parse(localStorage.estgWant||"[]")),visited=new Set(JSON.parse(localStorage.estgVisited||"[]")),selected=0,special="";
-const map=L.map("map").setView([13.73,-88.87],8);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);const layer=L.layerGroup().addTo(map);
+const map=L.map("map",{zoomControl:true}).setView([13.73,-88.87],8);
+const roadLayer=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'});
+const satelliteLayer=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Tiles &copy; Esri, Maxar, Earthstar Geographics"});
+roadLayer.addTo(map);
+L.control.layers({"🛣️ Road / Calles":roadLayer,"🛰️ Satellite / Satélite":satelliteLayer},null,{position:"topright",collapsed:false}).addTo(map);
+const layer=L.layerGroup().addTo(map);
 const t=k=>tr[lang][k]||k;
 function persist(){localStorage.estgWant=JSON.stringify([...want]);localStorage.estgVisited=JSON.stringify([...visited]);counts()}
 function counts(){wantCount.textContent=want.size;visitedCount.textContent=visited.size}
