@@ -9,14 +9,22 @@
 </head>
 <body>
 <header>
-<a class="brand" href="#"><span class="logo">ES</span><span>El Salvador<br><b>Trip Guide</b></span></a>
+<a class="brand" href="#"><span class="flag" aria-label="Flag of El Salvador">🇸🇻</span><span>El Salvador<br><b>Trip Guide</b></span></a>
 <nav><a href="#explore" data-t="explore">Explore</a><a href="#travel" data-t="transport">Transport</a><a href="#business" data-t="business">For businesses</a></nav>
 <button id="language" class="outline">ES</button>
 </header>
 <main>
 <section class="hero">
 <div><span class="kicker" data-t="kicker">THE LITTLE COUNTRY WITH A BIG SOUL</span><h1 data-t="title">Find your next unforgettable place in El Salvador.</h1><p data-t="intro">Beaches, volcanoes, colorful towns and incredible food—all on one interactive map made for international travelers.</p><a class="primary" href="#explore" data-t="open">Explore the map</a></div>
-<div class="numbers"><p><strong id="total">18</strong><span data-t="curated">curated places</span></p><p><strong>14</strong><span data-t="departments">departments</span></p><p><strong>2</strong><span data-t="languages">languages</span></p></div>
+<div class="hero-visual">
+  <div class="photo-grid">
+    <figure class="city-photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/San_Salvador_Panorama_2013.jpg" alt="Panoramic view of San Salvador" loading="eager"><figcaption>City · San Salvador</figcaption></figure>
+    <figure class="beach-photo"><img src="https://images.unsplash.com/photo-1650651281314-dac5391d4935?auto=format&fit=crop&w=1200&q=85" alt="Colorful sunset at El Cuco beach" loading="eager"><figcaption>Beach · El Cuco</figcaption></figure>
+    <figure class="mountain-photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Izalco_Volcano.jpg" alt="Izalco Volcano viewed from Cerro Verde" loading="eager"><figcaption>Mountain · Izalco</figcaption></figure>
+  </div>
+  <div class="numbers"><p><strong id="total">18</strong><span data-t="curated">curated places</span></p><p><strong>14</strong><span data-t="departments">departments</span></p><p><strong>2</strong><span data-t="languages">languages</span></p></div>
+  <p class="photo-credit">Photos: Paul Kurzweil / Wikimedia Commons · Anthony Darmanin / Unsplash · David Stanley / Wikimedia Commons</p>
+</div>
 </section>
 <section id="explore" class="section">
 <div class="heading"><div><span class="kicker" data-t="plan">PLAN YOUR TRIP</span><h2 data-t="mapTitle">Explore places on the map</h2></div><p data-t="mapHelp">Click a marker or place card for details.</p></div>
@@ -38,6 +46,6 @@
 <section id="business" class="business"><div><span class="kicker">LOCAL BUSINESSES</span><h2 data-t="own">Do you own a place travelers should discover?</h2><p data-t="ownerText">Verified profiles, direct contact details and featured map placement are coming soon.</p></div><a class="white" href="mailto:partners@elsalvadortripguide.com" data-t="join">Join partner waitlist</a></section>
 </main>
 <div id="modal" class="modal" aria-hidden="true"><button class="backdrop" data-close></button><article class="dialog"><button class="close" data-close>×</button><div id="photo"></div><div class="dialog-body"><small id="tag"></small><h2 id="placeName"></h2><b id="location"></b><p id="description"></p><div class="actions"><button id="wantBtn" class="outline"></button><button id="visitedBtn" class="outline"></button><a id="directions" class="primary" target="_blank" rel="noopener" data-t="directions">Directions</a></div></div></article></div>
-<footer><div class="brand"><span class="logo">ES</span><b>El Salvador Trip Guide</b></div><p>© 2026 · <span data-t="footer">Made for curious travelers.</span></p></footer>
+<footer><div class="brand"><span class="flag" aria-label="Flag of El Salvador">🇸🇻</span><b>El Salvador Trip Guide</b></div><p>© 2026 · <span data-t="footer">Made for curious travelers.</span></p></footer>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="/app.js"></script>
 </body></html>
