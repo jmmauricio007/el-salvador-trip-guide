@@ -10,7 +10,7 @@
 <body>
 <header>
 <a class="brand" href="#"><span class="flag" aria-label="Flag of El Salvador"><svg viewBox="0 0 300 180" role="img" aria-hidden="true"><path fill="#0f47af" d="M0 0h300v60H0zm0 120h300v60H0z"/><path fill="#fff" d="M0 60h300v60H0z"/><g transform="translate(150 90)"><circle r="24" fill="#fff" stroke="#d6a929" stroke-width="2"/><path d="M0-15 16 14h-32z" fill="none" stroke="#20834d" stroke-width="3"/><path d="M0-9v17M-9 8h18" stroke="#1687c8" stroke-width="2"/><path d="M-20 15Q0 28 20 15" fill="none" stroke="#20834d" stroke-width="3"/><circle cy="-2" r="3" fill="#f3c72f"/></g></svg></span><span>El Salvador<br><b>Trip Guide</b></span></a>
-<nav><a href="#explore" data-t="explore">Explore</a><a href="#travel" data-t="transport">Transport</a><a href="#business" data-t="business">For businesses</a></nav>
+<nav><a href="#explore" data-t="explore">Explore</a><a href="#planner" data-t="itineraries">Itineraries</a><a href="#travel" data-t="transport">Transport</a><a href="#business" data-t="business">For businesses</a></nav>
 <button id="language" class="outline">ES</button>
 </header>
 <main>
@@ -33,6 +33,26 @@
 <select id="category"></select><select id="department"></select><button id="reset" class="outline" data-t="reset">Reset</button>
 </div>
 <div class="map-shell"><div id="map"></div><aside><div class="result-head"><b id="count"></b> <span data-t="found">places found</span></div><div id="cards"></div></aside></div>
+</section>
+<section id="planner" class="planner section">
+<div class="planner-heading"><div><span class="kicker" data-t="plannerKicker">BUILD YOUR PERFECT ROUTE</span><h2 data-t="plannerTitle">Personalized El Salvador itinerary</h2><p data-t="plannerIntro">Choose your time, interests and travel pace. We’ll organize nearby experiences together so you spend more time exploring and less time crossing the country.</p></div><span class="planner-icon">🧭</span></div>
+<div class="planner-box">
+<div class="planner-step"><b><span>1</span><span data-t="lengthTitle">How long is your trip?</span></b><div class="choice-row duration-choices"><button class="duration active" data-days="3" data-t="threeDays">3 days</button><button class="duration" data-days="5" data-t="fiveDays">5 days</button><button class="duration" data-days="7" data-t="sevenDays">1 week</button><button class="duration" data-days="10" data-t="tenDays">1 week+</button></div></div>
+<div class="planner-step"><b><span>2</span><span data-t="interestTitle">What do you enjoy?</span></b><div class="interest-grid">
+<label><input type="checkbox" class="interest" value="beach"><span>🏖️ <i data-t="prefBeach">Beaches & water</i></span></label>
+<label><input type="checkbox" class="interest" value="mountain"><span>🌋 <i data-t="prefMountain">Mountains</i></span></label>
+<label><input type="checkbox" class="interest" value="food"><span>🍽️ <i data-t="prefFood">Food & coffee</i></span></label>
+<label><input type="checkbox" class="interest" value="culture"><span>🏛️ <i data-t="prefCulture">Culture & ruins</i></span></label>
+<label><input type="checkbox" class="interest" value="adventure"><span>🥾 <i data-t="prefAdventure">Adventure</i></span></label>
+<label><input type="checkbox" class="interest" value="nightlife"><span>🎶 <i data-t="prefNightlife">Nightlife</i></span></label>
+<label><input type="checkbox" class="interest" value="horse"><span>🐎 <i data-t="prefHorse">Horseback riding</i></span></label>
+<label><input type="checkbox" class="interest" value="fourbyfour"><span>🚙 <i data-t="pref4x4">4×4 experiences</i></span></label>
+<label><input type="checkbox" class="interest" value="mix" checked><span>🌈 <i data-t="prefMix">A little of everything</i></span></label>
+</div></div>
+<div class="planner-step planner-settings"><b><span>3</span><span data-t="styleTitle">Choose your travel style</span></b><div class="settings-grid"><label><small data-t="paceLabel">PACE</small><select id="tripPace"><option value="relaxed" data-t="relaxed">Relaxed</option><option value="balanced" selected data-t="balanced">Balanced</option><option value="active" data-t="activePace">Active</option></select></label><label><small data-t="startLabel">STARTING AREA</small><select id="tripStart"><option value="central">San Salvador / Airport</option><option value="west">Santa Ana / Western El Salvador</option><option value="east">San Miguel / Eastern El Salvador</option></select></label></div></div>
+<button id="generateTrip" class="primary generate-trip"><span>✨</span> <span data-t="generate">Create my itinerary</span></button>
+</div>
+<div id="tripOutput" class="trip-output" aria-live="polite"></div>
 </section>
 <section class="saved">
 <div><span class="kicker" data-t="yourTrip">YOUR TRIP</span><h2 data-t="save">Save places as you explore</h2></div>
