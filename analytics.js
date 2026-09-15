@@ -1,5 +1,5 @@
 (function(){
-"use strict";
+"use strict";\n// Vercel Analytics enabled; deployment refreshed 2026-09-15.
 window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};
 function track(name,data){try{window.va("event",{name:name,data:data||{}})}catch(error){console.info("Analytics event unavailable",error)}}
 function source(){if(location.pathname==="/")return "home";if(location.pathname.startsWith("/places/"))return "destination";return location.pathname.replace(/^\//,"")||"home"}
