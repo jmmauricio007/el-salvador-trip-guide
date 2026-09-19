@@ -109,6 +109,8 @@ const places=[
 [39,"Las Flores Surf Break","Ola de Las Flores","Surf","San Miguel","Chirilagua",13.1702,-88.1045,"🌊","A high-quality right point break on the eastern coast, generally suited to intermediate and advanced surfers. Check swell and access locally.","Point break de derecha de gran calidad en la costa oriental, generalmente apto para surfistas intermedios y avanzados. Confirma el oleaje y acceso localmente."],
 [40,"Punta Mango Surf Break","Ola de Punta Mango","Surf","Usulután","Jucuarán",13.1670,-88.0350,"🌊","A remote, demanding rocky wave reserved for experienced surfers on stronger days. Arrange transport and local guidance before visiting.","Ola rocosa, remota y exigente, reservada para surfistas experimentados en días fuertes. Organiza transporte y guía local antes de visitarla."]
 ].map(x=>({id:x[0],name:x[1],es:x[2],category:x[3],department:x[4],city:x[5],lat:x[6],lng:x[7],emoji:x[8],description:x[9],descripcion:x[10]}));
+const localImages={3:"/images/el-tunco-sunset.jpg"};
+places.forEach(place=>{if(localImages[place.id])place.image=localImages[place.id]});
 const wikiTitles={1:"Lake Coatepeque",2:"Santa Ana Volcano",3:"El Tunco",4:"San Salvador (volcano)",5:"San Salvador",6:"Suchitoto",7:"Conchagua (volcano)",8:"Río Sapo",9:"El Mozote",10:"Lake Alegría",11:"El Cuco",12:"Nahuizalco",13:"Joya de Cerén",14:"Los Cóbanos",15:"Pupusa",16:"Concepción de Ataco",17:"Montecristo Trifinio",18:"Gulf of Fonseca",19:"El Salvador International Airport",20:"Tazumal",21:"San Andrés, El Salvador",22:"Cihuatán"};
 async function loadImages(){
  const titleToPlace=new Map(places.map(p=>[wikiTitles[p.id],p]));
@@ -119,7 +121,7 @@ async function loadImages(){
   const payload=await response.json();
   Object.values(payload.query?.pages||{}).forEach(page=>{
    const place=titleToPlace.get(page.title)||places.find(p=>wikiTitles[p.id]===page.title);
-   if(place&&page.thumbnail?.source){place.image=page.thumbnail.source;place.imagePage=page.fullurl}
+   if(place&&!place.image&&page.thumbnail?.source){place.image=page.thumbnail.source;place.imagePage=page.fullurl}
   });
  }catch(error){console.info("Destination photos unavailable; using category artwork.",error)}
  render();if(selected)openPlace(selected);
