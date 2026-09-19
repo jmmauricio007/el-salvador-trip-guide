@@ -30,4 +30,4 @@ body{overflow-x:hidden}html{scroll-padding-top:90px}.primary,.white,.outline,.to
 
 .official-surf-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0 28px}.official-surf-list span{padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff;line-height:1.65;color:var(--muted)}.official-surf-list b{display:block;margin-bottom:4px;color:var(--blue)}.official-source-card .cta-row{margin-bottom:0}@media(max-width:650px){.official-surf-list{grid-template-columns:1fr}}
 
-@media(min-width:1051px){.seo-guide-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1051px){.seo-guide-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
