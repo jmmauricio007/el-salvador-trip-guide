@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Planifica tu viaje por El Salvador con un mapa interactivo, destinos, surf, rutas de buses e itinerarios personalizados de 3, 5 y 7 días.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="El Salvador Trip Guide">
+<meta name="theme-color" content="#075b46">
+<link rel="canonical" href="https://elsalvadortripguide.com/es">
+<link rel="alternate" hreflang="en" href="https://elsalvadortripguide.com/">
+<link rel="alternate" hreflang="es" href="https://elsalvadortripguide.com/es">
+<link rel="alternate" hreflang="fr" href="https://elsalvadortripguide.com/fr">
+<link rel="alternate" hreflang="x-default" href="https://elsalvadortripguide.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="El Salvador Trip Guide">
+<meta property="og:title" content="Guía de El Salvador, mapa e itinerarios">
+<meta property="og:description" content="Explora playas, volcanes, surf, pueblos coloridos, rutas de buses e itinerarios por El Salvador.">
+<meta property="og:url" content="https://elsalvadortripguide.com/es">
+<meta property="og:locale" content="es_SV">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Guía de El Salvador, mapa e itinerarios">
+<meta name="twitter:description" content="Mapa interactivo de El Salvador, surf, buses e itinerarios personalizados.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f47af'/%3E%3Cpath fill='white' d='M0 21h64v22H0z'/%3E%3Cpath fill='%23f2c230' d='M32 24l9 16H23z'/%3E%3C/svg%3E">
+<title>Guía de El Salvador, mapa interactivo e itinerarios</title>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://elsalvadortripguide.com/es#website","url":"https://elsalvadortripguide.com/es","name":"El Salvador Trip Guide","description":"Guía interactiva en español para descubrir El Salvador.","inLanguage":"es"},{"@type":"TouristDestination","name":"El Salvador","url":"https://elsalvadortripguide.com/es","description":"Playas, volcanes, surf, pueblos, parques arqueológicos y actividades en El Salvador."}]}
+</script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+<a class="brand" href="/es"><span class="flag" aria-label="Bandera de El Salvador"><svg viewBox="0 0 300 180" role="img" aria-hidden="true"><path fill="#0f47af" d="M0 0h300v60H0zm0 120h300v60H0z"/><path fill="#fff" d="M0 60h300v60H0z"/><g transform="translate(150 90)"><circle r="24" fill="#fff" stroke="#d6a929" stroke-width="2"/><path d="M0-15 16 14h-32z" fill="none" stroke="#20834d" stroke-width="3"/><path d="M0-9v17M-9 8h18" stroke="#1687c8" stroke-width="2"/><path d="M-20 15Q0 28 20 15" fill="none" stroke="#20834d" stroke-width="3"/><circle cy="-2" r="3" fill="#f3c72f"/></g></svg></span><span>El Salvador<br><b>Trip Guide</b></span></a>
+<nav aria-label="Navegación principal"><a href="#explore" data-t="explore">Explorar</a><a href="#planner" data-t="itineraries">Itinerarios</a><a href="#travel" data-t="transport">Transporte</a><a href="#business" data-t="business">Para negocios</a></nav>
+<div class="language-switch" role="group" aria-label="Language / Idioma / Langue"><button type="button" data-lang="en" aria-label="English">EN</button><button type="button" data-lang="es" aria-label="Español">ES</button><button type="button" data-lang="fr" aria-label="Français">FR</button></div>
+</header>
+<main>
+<section class="hero">
+<div><span class="kicker" data-t="kicker">EL PULGARCITO CON ALMA GIGANTE</span><h1 data-t="title">Encuentra tu próximo lugar inolvidable en El Salvador.</h1><p data-t="intro">Playas, volcanes, pueblos coloridos y comida increíble, todo en un mapa interactivo para viajeros internacionales.</p><a class="primary" href="#explore" data-t="open">Explorar el mapa</a></div>
+<div class="hero-visual">
+  <div class="photo-grid">
+    <figure class="city-photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/San_Salvador_Panorama_2013.jpg" alt="Vista panorámica de San Salvador" loading="eager"><figcaption>Ciudad · San Salvador</figcaption></figure>
+    <figure class="beach-photo"><img src="https://images.unsplash.com/photo-1650651281314-dac5391d4935?auto=format&fit=crop&w=1200&q=85" alt="Atardecer colorido en la playa El Cuco" loading="eager"><figcaption>Playa · El Cuco</figcaption></figure>
+    <figure class="mountain-photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Izalco_Volcano.jpg" alt="Volcán de Izalco visto desde Cerro Verde" loading="eager"><figcaption>Montaña · Izalco</figcaption></figure>
+  </div>
+  <div class="numbers"><p><strong id="total">18</strong><span data-t="curated">lugares seleccionados</span></p><p><strong>14</strong><span data-t="departments">departamentos</span></p><p><strong>3</strong><span data-t="languages">idiomas</span></p></div>
+  <p class="photo-credit">Fotos: Paul Kurzweil / Wikimedia Commons · Anthony Darmanin / Unsplash · David Stanley / Wikimedia Commons</p>
+</div>
+</section>
+<section class="seo-guides section" aria-labelledby="guide-title">
+<div class="heading"><div><span class="kicker" data-t="guideKicker">GUÍAS DE VIAJE</span><h2 id="guide-title" data-t="guideTitle">Organiza tu viaje perfecto por El Salvador</h2></div><p data-t="guideIntro">Guías detalladas con acceso directo al mapa interactivo.</p></div>
+<div class="seo-guide-grid">
+<a href="/es/surf-spots-el-salvador"><span>🏄</span><strong data-t="guideSurf">Mejores lugares para surfear</strong><small data-t="guideSurfText">Punta Roca, El Sunzal, El Zonte y el Oriente Salvaje</small></a>
+<a href="/es/el-salvador-bus-guide"><span>🚌</span><strong data-t="guideBus">Guía para viajar en bus</strong><small data-t="guideBusText">Rutas populares, terminales y puntos de abordaje</small></a>
+<a href="/el-salvador-itinerary-3-days"><span>3</span><strong data-t="guide3">Itinerario de 3 días</strong><small data-t="guide3Text">Una introducción compacta para una visita corta</small></a>
+<a href="/es/itinerario-el-salvador-5-dias"><span>5</span><strong data-t="guide5">Itinerario de 5 días</strong><small data-t="guide5Text">Costa de surf, bosque, montaña, capital y vida marina</small></a>
+<a href="/el-salvador-itinerary-7-days"><span>7</span><strong data-t="guide7">Itinerario de 7 días</strong><small data-t="guide7Text">Una semana equilibrada por el occidente y centro de El Salvador</small></a>
+<a href="/es/naturaleza-aventura-el-salvador"><span>🌋</span><strong data-t="guideNature">Naturaleza y aventura</strong><small data-t="guideNatureText">Volcanes, lagos, bosques y cascadas</small></a>
+<a href="/es/pueblos-ciudades-el-salvador"><span>🎨</span><strong data-t="guideTowns">Pueblos y ciudades</strong><small data-t="guideTownsText">Calles coloridas, mercados, café e historia</small></a>
+<a href="/es/parques-arqueologicos-el-salvador"><span>🏺</span><strong data-t="guideArchaeology">Parques arqueológicos</strong><small data-t="guideArchaeologyText">Ciudades mayas, museos y vida ancestral</small></a>
+<a href="/es/bienestar-el-salvador"><span>♨️</span><strong data-t="guideWellness">Bienestar y relajación</strong><small data-t="guideWellnessText">Termales, glamping, fincas de café y escapadas tranquilas</small></a>
+<a href="/es/oriente-salvaje-itinerario-5-dias"><span>🌅</span><strong data-t="guideWildEast">Oriente salvaje: 5 días</strong><small data-t="guideWildEastText">Punta Mango, El Cuco, San Miguel, el golfo y Conchagua</small></a>
+<a href="/es/volcanes-mar-itinerario-4-dias"><span>🌋</span><strong data-t="guideVolcanoSea">Volcanes y mar: 4 días</strong><small data-t="guideVolcanoSeaText">Ilamatepec, Cerro Verde, Coatepeque y la costa occidental</small></a>
+<a href="/es/tour-operadores-el-salvador"><span>🧭</span><strong data-t="guideOperators">Buscar un tour operador</strong><small data-t="guideOperatorsText">Directorio oficial, verificación y planificación regional</small></a>
+<a href="/es/transporte-turistico-el-salvador"><span>🚐</span><strong data-t="guideTouristTransport">Transporte turístico</strong><small data-t="guideTouristTransportText">Traslados del aeropuerto, conductores privados y transporte contratado</small></a>
+<a href="/es/guias-turisticos-el-salvador"><span>🗣️</span><strong data-t="guideIndependent">Buscar un guía turístico</strong><small data-t="guideIndependentText">Idiomas, especialidades, credenciales y verificación</small></a>
+<a href="/es/sobre-el-salvador"><span>🇸🇻</span><strong data-t="guideAbout">Sobre El Salvador</strong><small data-t="guideAboutText">Ingreso, moneda, clima, idioma y datos prácticos</small></a>
+</div><div class="destination-guide-links" aria-label="Guías de destinos destacados"><a href="/places/el-tunco"><span>📍</span><strong data-t="guideTunco">Guía de El Tunco</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a><a href="/places/santa-ana-volcano"><span>📍</span><strong data-t="guideSantaAna">Guía del volcán de Santa Ana</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a><a href="/places/lake-coatepeque"><span>📍</span><strong data-t="guideCoatepeque">Guía del lago de Coatepeque</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a><a href="/places/ruta-de-las-flores"><span>📍</span><strong data-t="guideFlores">Guía de la Ruta de las Flores</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a><a href="/places/san-salvador-historic-center"><span>📍</span><strong data-t="guideCentro">Guía del Centro Histórico de San Salvador</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a><a href="/places/suchitoto"><span>📍</span><strong data-t="guideSuchitoto">Guía de Suchitoto</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a><a href="/places/conchagua-volcano"><span>📍</span><strong data-t="guideConchagua">Guía del volcán de Conchagua</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a><a href="/places/rio-sapo"><span>📍</span><strong data-t="guideRioSapo">Guía de Río Sapo</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a><a href="/places/el-cuco-beach"><span>📍</span><strong data-t="guideElCuco">Guía de playa El Cuco</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a><a href="/places/joya-de-ceren"><span>📍</span><strong data-t="guideJoya">Guía de Joya de Cerén</strong><small data-t="destinationGuideText">Qué hacer, transporte, mapa y consejos prácticos</small></a></div></section>
+<section id="explore" class="section">
+<div class="heading"><div><span class="kicker" data-t="plan">PLANIFICA TU VIAJE</span><h2 data-t="mapTitle">Explora lugares en el mapa</h2></div><p data-t="mapHelp">Haz clic en un marcador o tarjeta para ver detalles.</p></div>
+<div class="filters">
+<label aria-label="Buscar destinos">⌕ <input id="search" type="search" placeholder="Buscar lugar o ciudad…"></label>
+<select id="category" aria-label="Filter by category"></select><select id="department" aria-label="Filter by department"></select><button id="reset" class="outline" data-t="reset">Restablecer</button>
+</div>
+<div class="map-shell"><div id="map" role="region" aria-label="Mapa interactivo de destinos"></div><aside><div class="result-head"><b id="count" aria-live="polite"></b> <span data-t="found">lugares encontrados</span></div><div id="cards"></div></aside></div>
+</section>
+<section id="planner" class="planner section">
+<div class="planner-heading"><div><span class="kicker" data-t="plannerKicker">CREA TU RUTA PERFECTA</span><h2 data-t="plannerTitle">Itinerario personalizado por El Salvador</h2><p data-t="plannerIntro">Elige tu tiempo, intereses y ritmo. Organizaremos experiencias cercanas para que explores más y cruces menos el país.</p></div><span class="planner-icon">🧭</span></div>
+<div class="planner-box">
+<div class="planner-step"><b><span>1</span><span data-t="lengthTitle">¿Cuánto dura tu viaje?</span></b><div class="choice-row duration-choices"><button class="duration active" data-days="3" data-t="threeDays">3 días</button><button class="duration" data-days="5" data-t="fiveDays">5 días</button><button class="duration" data-days="7" data-t="sevenDays">1 semana</button><button class="duration" data-days="10" data-t="tenDays">Más de 1 semana</button></div></div>
+<div class="planner-step"><b><span>2</span><span data-t="interestTitle">¿Qué te gusta?</span></b><div class="interest-grid">
+<label><input type="checkbox" class="interest" value="beach"><span>🏖️ <i data-t="prefBeach">Playas y agua</i></span></label>
+<label><input type="checkbox" class="interest" value="surf"><span>🏄 <i data-t="prefSurf">Surf</i></span></label>
+<label><input type="checkbox" class="interest" value="mountain"><span>🌋 <i data-t="prefMountain">Montañas</i></span></label>
+<label><input type="checkbox" class="interest" value="food"><span>🍽️ <i data-t="prefFood">Comida y café</i></span></label>
+<label><input type="checkbox" class="interest" value="culture"><span>🏛️ <i data-t="prefCulture">Cultura y ruinas</i></span></label>
+<label><input type="checkbox" class="interest" value="adventure"><span>🥾 <i data-t="prefAdventure">Aventura</i></span></label>
+<label><input type="checkbox" class="interest" value="nightlife"><span>🎶 <i data-t="prefNightlife">Vida nocturna</i></span></label>
+<label><input type="checkbox" class="interest" value="horse"><span>🐎 <i data-t="prefHorse">Paseos a caballo</i></span></label>
+<label><input type="checkbox" class="interest" value="fourbyfour"><span>🚙 <i data-t="pref4x4">Experiencias 4×4</i></span></label>
+<label><input type="checkbox" class="interest" value="mix" checked><span>🌈 <i data-t="prefMix">Un poco de todo</i></span></label>
+</div></div>
+<div class="planner-step planner-settings"><b><span>3</span><span data-t="styleTitle">Elige tu estilo de viaje</span></b><div class="settings-grid"><label><small data-t="paceLabel">RITMO</small><select id="tripPace"><option value="relaxed" data-t="relaxed">Relajado</option><option value="balanced" selected data-t="balanced">Equilibrado</option><option value="active" data-t="activePace">Activo</option></select></label><label><small data-t="startLabel">ZONA DE INICIO</small><select id="tripStart"><option value="central">San Salvador / Airport</option><option value="west">Santa Ana / Western El Salvador</option><option value="east">San Miguel / Eastern El Salvador</option></select></label></div></div>
+<button id="generateTrip" class="primary generate-trip"><span>✨</span> <span data-t="generate">Crear mi itinerario</span></button>
+</div>
+<div id="tripOutput" class="trip-output" aria-live="polite"></div>
+</section>
+<section class="saved">
+<div><span class="kicker" data-t="yourTrip">TU VIAJE</span><h2 data-t="save">Guarda lugares mientras exploras</h2></div>
+<div class="saved-actions"><button id="wantFilter"><strong id="wantCount">0</strong><span data-t="want">Quiero visitar</span></button><button id="visitedFilter"><strong id="visitedCount">0</strong><span data-t="visited">Visitados</span></button></div>
+</section>
+<section id="travel" class="section tools"><span class="kicker" data-t="tools">HERRAMIENTAS DE VIAJE</span><h2 data-t="move">Todo lo necesario para movilizarte</h2><div class="tool-grid">
+<article><i>🚌</i><h3 data-t="bus">Guía de buses</h3><p data-t="busText">Rutas, terminales, precios estimados y tiempos de viaje.</p><a class="tool-link" href="#bus-guide" data-t="openBus">ABRIR GUÍA DE BUSES →</a></article>
+<article><i>🚙</i><h3 data-t="car">Alquilar vehículo</h3><p data-t="carText">Compara opciones confiables para ciudad, playa y caminos rurales.</p><a class="tool-link" href="/travel-services#rental" data-t="openCar">COMPARAR VEHÍCULOS →</a></article>
+<article><i>📱</i><h3 data-t="esim">eSIM y datos</h3><p data-t="esimText">Llega conectado con paquetes seleccionados para El Salvador.</p><a class="tool-link" href="/travel-services#esim" data-t="openEsim">COMPARAR eSIM →</a></article><article><i>🚐</i><h3 data-t="airportTransfer">Traslado del aeropuerto</h3><p data-t="airportTransferText">Compara opciones de recogida reservada desde el aeropuerto SAL.</p><a class="tool-link" href="/travel-services#transfer" data-t="openTransfer">COMPARAR TRASLADOS →</a></article>
+<article><i>🏥</i><h3 data-t="medical">Hospitales y clínicas</h3><p data-t="medicalText">Encuentra centros médicos cercanos y orientación de emergencia.</p><a id="medicalFilter" class="tool-link" href="#explore" data-t="openMedical">VER EN EL MAPA →</a></article>
+<article><i>₿</i><h3 data-t="bitcoin">Bitcoin para viajeros</h3><p data-t="bitcoinText">Paga con seguridad, encuentra zonas Bitcoin y lleva dólares como respaldo.</p><a class="tool-link" href="#bitcoin-guide" data-t="openBitcoin">ABRIR GUÍA BITCOIN →</a></article>
+</div></section>
+<section id="bitcoin-guide" class="bitcoin-guide section">
+<div class="bitcoin-hero"><div><span class="kicker" data-t="btcKicker">BITCOIN PARA VIAJEROS</span><h2 data-t="btcTitle">Usa Bitcoin durante tu viaje</h2><p data-t="btcIntro">Aceptar Bitcoin es voluntario. Aprende lo básico, confirma antes de pagar y lleva siempre otro método de pago.</p></div><span class="bitcoin-mark" aria-hidden="true">₿</span></div>
+<div class="bitcoin-steps">
+<article><i>👋</i><h3 data-t="btcAsk">Pregunta antes de ordenar</h3><p data-t="btcAskText">Busca el símbolo de Bitcoin o Lightning y confirma que el negocio lo acepta ese día.</p></article>
+<article><i>⚡</i><h3 data-t="btcLightning">Usa Lightning para pagos pequeños</h3><p data-t="btcLightningText">Confirma el monto, la moneda y el destinatario; espera la pantalla de pago exitoso.</p></article>
+<article><i>💵</i><h3 data-t="btcBackup">Lleva dólares como respaldo</h3><p data-t="btcBackupText">El efectivo y las tarjetas siguen siendo importantes porque Bitcoin no se acepta en todas partes.</p></article>
+<article><i>🔐</i><h3 data-t="btcSafety">Protege tu billetera</h3><p data-t="btcSafetyText">Nunca compartas tu frase de recuperación, PIN o claves privadas. No permitas que un desconocido configure tu billetera.</p></article>
+</div>
+<div class="bitcoin-actions"><a class="btc-primary" href="https://btcmap.org/map#9/13.73000/-88.87000" target="_blank" rel="noopener" data-t="btcMap">ABRIR BTC MAP EN VIVO ↗</a><a id="bitcoinFilter" class="outline" href="#explore" data-t="btcShow">VER ZONA BITCOIN EN NUESTRO MAPA</a><a class="outline" href="mailto:partners@elsalvadortripguide.com?subject=Bitcoin%20location%20update" data-t="btcReport">REPORTAR UN CAMBIO</a></div>
+<p class="bitcoin-disclaimer" data-t="btcDisclaimer">La información de los comercios cambia con frecuencia. Confirma aceptación, tipo de cambio, red y comisiones antes de pagar. Esta guía es educativa y no constituye asesoría financiera ni de inversión.</p>
+<div class="bitcoin-sources"><b>Sources:</b> <a href="https://www.bitcoinbeach.com/" target="_blank" rel="noopener">Bitcoin Beach</a> · <a href="https://btcmap.org/" target="_blank" rel="noopener">BTC Map</a> · <a href="https://www.imf.org/en/Publications/CR/Issues/2025/03/03/El-Salvador-2025-Article-IV-Consultation-and-First-Review-Under-the-Extended-Arrangement-565392" target="_blank" rel="noopener">IMF country information</a></div>
+</section>
+<section id="bus-guide" class="bus-guide section">
+<div class="bus-hero"><div><span class="kicker" data-t="busKicker">MUÉVETE POR MENOS</span><h2 data-t="busTitle">Guía de buses de El Salvador</h2><p data-t="busIntro">Encuentra opciones prácticas de buses públicos y transporte turístico. Los precios y tiempos son estimados; confirma antes de abordar.</p></div><div class="bus-tip"><b>💵 <span data-t="cashTitle">Lleva billetes pequeños</span></b><span data-t="cashText">La mayoría de buses públicos solo acepta efectivo.</span></div></div>
+<div class="bus-controls"><label>⌕ <input id="busSearch" type="search" placeholder="Search origin or destination…"></label><select id="busMode"><option value="all">All transport</option><option value="public">Public bus</option><option value="shuttle">Tourist shuttle</option></select></div>
+<div id="busResults" class="bus-results"></div>
+<div class="bus-advice">
+<article><b>☀️ <span data-t="dayTitle">Viaja durante el día</span></b><p data-t="dayText">Sal temprano, especialmente si necesitas transbordos o viajas a zonas rurales.</p></article>
+<article><b>🗣️ <span data-t="confirmTitle">Confirma antes de abordar</span></b><p data-t="confirmText">Di o muestra tu destino al conductor y pregunta dónde debes bajarte.</p></article>
+<article><b>🎒 <span data-t="bagTitle">Mantén tus objetos cerca</span></b><p data-t="bagText">Lleva documentos, teléfono y dinero contigo; no los dejes sin vigilancia.</p></article>
+</div>
+<p class="bus-disclaimer" data-t="busDisclaimer">Los números de ruta, paradas, tarifas y horarios pueden cambiar sin aviso. Confirma en tu alojamiento, terminal o con el conductor el día del viaje.</p>
+<div class="bus-sources"><b data-t="sources">Fuentes de información:</b> <a href="https://spring-bus.com/buses/el-salvador/" target="_blank" rel="noopener">Spring Bus</a> · <a href="https://centrocoasting.com/" target="_blank" rel="noopener">CentroCoasting</a> · <a href="https://cartorux.com/" target="_blank" rel="noopener">Cartorux</a></div>
+</section>
+<section id="business" class="business"><div><span class="kicker" data-t="businessKicker">NEGOCIOS LOCALES</span><h2 data-t="own">¿Tienes un lugar que los viajeros deberían descubrir?</h2><p data-t="ownerText">Próximamente habrá perfiles verificados, contacto directo y posiciones destacadas.</p></div><a class="white" href="/partners" data-t="join">Unirse a la lista de socios</a></section>
+</main>
+<div id="modal" class="modal" aria-hidden="true"><button class="backdrop" data-close aria-label="Cerrar detalles del lugar"></button><article class="dialog"><button class="close" data-close aria-label="Cerrar detalles del lugar">×</button><div id="photo"></div><div class="dialog-body"><small id="tag"></small><h2 id="placeName"></h2><b id="location"></b><p id="description"></p><div class="actions"><button id="wantBtn" class="outline"></button><button id="visitedBtn" class="outline"></button><a id="directions" class="primary" target="_blank" rel="noopener" data-t="directions">Cómo llegar</a><a id="detailsLink" class="guide-link" data-t="fullGuide">Guía completa</a><a id="claimLink" class="outline" data-t="claimListing">Reclamar esta ficha</a></div></div></article></div>
+<footer><div class="brand"><span class="flag" aria-label="Bandera de El Salvador"><svg viewBox="0 0 300 180" role="img" aria-hidden="true"><path fill="#0f47af" d="M0 0h300v60H0zm0 120h300v60H0z"/><path fill="#fff" d="M0 60h300v60H0z"/><g transform="translate(150 90)"><circle r="24" fill="#fff" stroke="#d6a929" stroke-width="2"/><path d="M0-15 16 14h-32z" fill="none" stroke="#20834d" stroke-width="3"/><path d="M0-9v17M-9 8h18" stroke="#1687c8" stroke-width="2"/><path d="M-20 15Q0 28 20 15" fill="none" stroke="#20834d" stroke-width="3"/><circle cy="-2" r="3" fill="#f3c72f"/></g></svg></span><b>El Salvador Trip Guide</b></div><p>© 2026 · <span data-t="footer">Hecho para viajeros curiosos.</span></p></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="/app.js"></script>
+<script defer src="/_vercel/insights/script.js"></script><script defer src="/analytics.js"></script></body></html>
