@@ -20,7 +20,15 @@
 <span class="kicker">MUÉVETE POR MENOS</span>
 <h1>Guía de buses de El Salvador</h1>
 <p class="lead">Los buses públicos son económicos, pero los números de ruta, lugares de salida y horarios pueden cambiar. Usa esta guía para comprender las conexiones principales y confirma el recorrido con tu alojamiento, personal de la terminal o conductor el mismo día.</p>
-<div class="cta-row"><a class="primary" href="/#bus-guide">Buscar en la guía interactiva</a><a class="outline" href="/#explore">Abrir el mapa de destinos</a></div>
+<div class="cta-row"><a class="primary" href="#bus-routes">Buscar en la guía interactiva</a><a class="outline" href="/#explore">Abrir el mapa de destinos</a></div>
+<section id="bus-routes" class="bus-guide">
+<div class="bus-hero"><div><span class="kicker">BUSCADOR INTERACTIVO</span><h2>Encuentra un bus o transporte</h2><p>Busca conexiones populares y abre el punto exacto de abordaje o transbordo en Google Maps.</p></div><div class="bus-tip"><b>💵 Lleva billetes pequeños</b><span>La mayoría de buses públicos solo acepta efectivo.</span></div></div>
+<div class="bus-controls"><label>⌕ <input id="busSearch" type="search" placeholder="Buscar origen o destino…"></label><select id="busMode"><option value="all">Todo transporte</option><option value="public">Bus público</option><option value="shuttle">Transporte turístico</option></select></div>
+<div id="busResults" class="bus-results"></div>
+<div class="bus-advice"><article><b>☀️ Viaja durante el día</b><p>Sal temprano, especialmente para rutas con transbordos o paradas rurales.</p></article><article><b>🗣️ Confirma antes de abordar</b><p>Muestra tu destino al conductor y pregunta dónde bajar.</p></article><article><b>🎒 Mantén tus objetos cerca</b><p>Lleva documentos, teléfono y dinero contigo.</p></article></div>
+<p class="bus-disclaimer">Las rutas, paradas, tarifas y tiempos pueden cambiar. Confirma localmente el día del viaje.</p>
+<div class="bus-sources"><b>Fuentes:</b> <a href="https://spring-bus.com/buses/el-salvador/" target="_blank" rel="noopener">Spring Bus</a> · <a href="https://centrocoasting.com/" target="_blank" rel="noopener">CentroCoasting</a> · <a href="https://cartorux.com/" target="_blank" rel="noopener">Cartorux</a></div>
+</section>
 <h2>Rutas principales</h2>
 <div class="route-card"><h3>Aeropuerto a San Salvador</h3><p>La ruta 138 suele salir de la parada pública fuera del complejo aeroportuario. Para llegadas nocturnas o con mucho equipaje, considera un traslado verificado reservado previamente.</p></div>
 <div class="route-card"><h3>San Salvador a La Libertad y la costa</h3><p>Las rutas 102 y 102A conectan la capital con La Libertad. Algunos servicios continúan hacia El Tunco y El Zonte; confirma el destino final antes de abordar.</p></div>
@@ -33,6 +41,6 @@
 <div class="seo-related"><h2>Continúa planificando</h2><p><a href="/es/surf-spots-el-salvador">Lugares para surfear</a> · <a href="/#planner">Crear un itinerario</a> · <a href="/#explore">Mapa interactivo</a></p></div>
 </main>
 <footer><p>Recurso independiente para planificar viajes por El Salvador.</p></footer>
-<script defer src="/_vercel/insights/script.js"></script><script defer src="/analytics.js"></script>
+<script src="/bus-guide.js"></script><script defer src="/_vercel/insights/script.js"></script><script defer src="/analytics.js"></script>
 </body>
 </html>

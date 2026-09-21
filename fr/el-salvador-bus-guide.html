@@ -34,9 +34,17 @@
 <h1>Guide des autobus au Salvador</h1>
 <p class="lead">Les autobus publics sont économiques, mais les lignes, points de départ et horaires peuvent changer. Utilisez ce guide pour comprendre les principales correspondances, puis confirmez votre trajet le jour même.</p>
 <div class="cta-row">
-<a class="primary" href="/fr/#bus-guide">Ouvrir le guide interactif</a>
+<a class="primary" href="#bus-routes">Ouvrir le guide interactif</a>
 <a class="outline" href="/fr/#explore">Voir les destinations</a>
 </div>
+<section id="bus-routes" class="bus-guide">
+<div class="bus-hero"><div><span class="kicker">RECHERCHE INTERACTIVE</span><h2>Trouver un autobus ou une navette</h2><p>Recherchez les liaisons populaires et ouvrez le point d’embarquement ou de correspondance dans Google Maps.</p></div><div class="bus-tip"><b>💵 Gardez de petites coupures</b><span>La plupart des autobus publics acceptent uniquement les espèces.</span></div></div>
+<div class="bus-controls"><label>⌕ <input id="busSearch" type="search" placeholder="Rechercher un départ ou une destination…"></label><select id="busMode"><option value="all">Tous les transports</option><option value="public">Autobus public</option><option value="shuttle">Navette touristique</option></select></div>
+<div id="busResults" class="bus-results"></div>
+<div class="bus-advice"><article><b>☀️ Voyagez de jour</b><p>Partez tôt, surtout pour les trajets avec correspondance.</p></article><article><b>🗣️ Confirmez avant de monter</b><p>Montrez votre destination au chauffeur et demandez où descendre.</p></article><article><b>🎒 Gardez vos objets près de vous</b><p>Conservez documents, téléphone et argent avec vous.</p></article></div>
+<p class="bus-disclaimer">Les lignes, arrêts, tarifs et durées peuvent changer. Confirmez sur place le jour du voyage.</p>
+<div class="bus-sources"><b>Sources :</b> <a href="https://spring-bus.com/buses/el-salvador/" target="_blank" rel="noopener">Spring Bus</a> · <a href="https://centrocoasting.com/" target="_blank" rel="noopener">CentroCoasting</a> · <a href="https://cartorux.com/" target="_blank" rel="noopener">Cartorux</a></div>
+</section>
 <h2>Principales lignes</h2>
 <div class="route-card">
 <h3>Aéroport vers San Salvador</h3>
@@ -78,6 +86,7 @@
 <footer>
 <p>Ressource indépendante de planification de voyage en français.</p>
 </footer>
+<script src="/bus-guide.js"></script>
 <script defer src="/_vercel/insights/script.js">
 </script>
 <script defer src="/analytics.js">
