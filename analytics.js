@@ -12,6 +12,7 @@ if(target.id==="detailsLink"||target.matches('a[href^="/places/"]')){track("Dest
 if(target.id==="transitDirections"){track("Bus Directions Click",{source:"place_modal"});return}
 if(target.id==="restaurantsNearby"){track("Nearby Restaurants Click",{source:"place_modal"});return}
 if(target.id==="accommodationNearby"){track("Nearby Accommodation Click",{source:"place_modal"});return}
+if(target.id==="chivoAtmLink"||target.matches('a[href*="chivowallet.com/index.html#ubicacion"]')){track("Chivo ATM Locator Click",{source:source()});return}
 if(target.id==="directions"||target.matches('a[href*="google.com/maps"]')){track("Directions Click",{source:source()});return}
 if(target.id==="generateTrip"){const days=document.querySelector(".duration.active")?.dataset.days||"unknown";const pace=document.getElementById("tripPace")?.value||"unknown";track("Itinerary Generated",{days:days,pace:pace});return}
 if(target.id==="wantBtn")track("Place Saved",{source:"map"});
