@@ -6,7 +6,7 @@ function track(name,data){try{window.va("event",{name:name,data:data||{}})}catch
 function source(){if(location.pathname==="/")return "home";if(location.pathname.startsWith("/places/"))return "destination";return location.pathname.replace(/^\//,"")||"home"}
 document.addEventListener("click",function(event){
 const target=event.target.closest("a,button");if(!target)return;
-if(target.matches(".affiliate-link[data-provider]")){track("Affiliate Click",{provider:target.dataset.provider,source:source()});return}
+if(target.matches(".affiliate-link[data-provider],.partner-cta[data-provider]")){track("Affiliate Click",{provider:target.dataset.provider,source:source()});return}
 if(target.id==="claimLink"||target.matches('a[href^="/partners"]')){track("Partner CTA",{source:source()});return}
 if(target.id==="detailsLink"||target.matches('a[href^="/places/"]')){track("Destination Guide Open",{source:source()});return}
 if(target.id==="transitDirections"){track("Bus Directions Click",{source:"place_modal"});return}
