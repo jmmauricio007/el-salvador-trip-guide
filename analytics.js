@@ -21,6 +21,7 @@ function loadTravelAssistant(){
 loadTravelAssistant();
 document.addEventListener("click",function(event){
 const target=event.target.closest("a,button");if(!target)return;
+if(target.matches(".partner-referral[data-provider]")){track("Rental Partner Referral",{provider:target.dataset.provider,source:source(),destination:target.href});return}
 if(target.matches(".affiliate-link[data-provider],.partner-cta[data-provider]")){track("Affiliate Click",{provider:target.dataset.provider,source:source()});return}
 if(target.matches('a[href^="mailto:info@elsalvadortripguide.com"]')){track("Contact Email Click",{source:source()});return}
 if(target.id==="claimLink"||target.matches('a[href^="/partners"]')){track("Partner CTA",{source:source()});return}
