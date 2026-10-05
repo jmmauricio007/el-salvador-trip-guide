@@ -13,6 +13,12 @@ const guide=l==="es"?"/es/guias-de-viaje":l==="fr"?"/fr/guides-de-voyage":"/trav
 const consular=l==="es"?{href:"/es/embajadas-ayuda-consular-el-salvador",label:"Embajadas y ayuda consular"}:l==="fr"?{href:"/fr/ambassades-assistance-consulaire-salvador",label:"Ambassades et assistance consulaire"}:{href:"/embassies-consular-help-el-salvador",label:"Embassies & consular help"};
 footer.className="site-footer";footer.innerHTML=`<div class="footer-grid"><div class="footer-brand"><a class="brand" href="${base||'/'}"><span class="footer-flag" aria-hidden="true">🇸🇻</span><span>El Salvador <b>Trip Guide</b></span></a><p>${c.tag}</p></div><div><h2>${c.explore}</h2><a href="${base||'/'}#explore">${c.map}</a><a href="${guide}">${c.guides}</a><a href="${bus}">${c.bus}</a><a href="/travel-services">${c.services}</a><a href="${consular.href}">${consular.label}</a></div><div><h2>${c.partners}</h2><a class="contact-email" href="mailto:info@elsalvadortripguide.com?subject=El%20Salvador%20Trip%20Guide%20inquiry">${c.contact}:<br><strong>info@elsalvadortripguide.com</strong></a><a href="/partners">${c.join}</a><a href="/partners#partner-form">${c.claim}</a></div><div><h2>${c.legal}</h2><a href="/privacy-policy?lang=${l}">${c.privacy}</a><a href="/terms-of-use?lang=${l}">${c.terms}</a><a href="/affiliate-disclosure?lang=${l}">${c.affiliate}</a></div><div><h2>${c.language}</h2><div class="footer-languages"><a href="/" hreflang="en" onclick="localStorage.estgLang='en'">English</a><a href="/es" hreflang="es" onclick="localStorage.estgLang='es'">Español</a><a href="/fr" hreflang="fr" onclick="localStorage.estgLang='fr'">Français</a></div></div></div><div class="footer-bottom"><span>© 2026 El Salvador Trip Guide. ${c.rights}</span><span>elsalvadortripguide.com</span></div>`}
 upgradeFooter();window.addEventListener("legal-language-change",upgradeFooter);
+function loadTravelAssistant(){
+ if(document.querySelector('script[src="/chat-widget.js"]'))return;
+ const stylesheet=document.createElement("link");stylesheet.rel="stylesheet";stylesheet.href="/chat-widget.css";document.head.appendChild(stylesheet);
+ const script=document.createElement("script");script.src="/chat-widget.js";script.defer=true;document.body.appendChild(script)
+}
+loadTravelAssistant();
 document.addEventListener("click",function(event){
 const target=event.target.closest("a,button");if(!target)return;
 if(target.matches(".affiliate-link[data-provider],.partner-cta[data-provider]")){track("Affiliate Click",{provider:target.dataset.provider,source:source()});return}
@@ -33,4 +39,3 @@ if(target.matches('a[href^="/travel-services"]'))track("Travel Service Open",{so
 });
 const partnerForm=document.getElementById("partnerForm");if(partnerForm)partnerForm.addEventListener("submit",function(){const type=document.getElementById("requestType")?.value||"unknown";track("Partner Lead Prepared",{request_type:type})});
 })();
-
