@@ -62,6 +62,41 @@
   const form = root.querySelector("form");
   const input = root.querySelector("input");
 
+  function renderAnswer(item, text) {
+    item.replaceChildren();
+    const pattern = /\[([^\]\n]+)\]\((https?:\/\/[^\s)]+|\/(?!\/)[^\s)]*|#[\w-]+)\)|https?:\/\/[^\s<>]+|(^|[\s(])((?:\/(?!\/)[a-zA-Z][\w/?=&%#.-]*|\/#explore|#[\w-]+))|\*\*([^*\n]+)\*\*/g;
+    let cursor = 0;
+    for (const match of text.matchAll(pattern)) {
+      item.append(document.createTextNode(text.slice(cursor, match.index)));
+      if (match[5]) {
+        const strong = document.createElement("strong");
+        strong.textContent = match[5];
+        item.append(strong);
+      } else {
+        let href = match[2] || match[4] || match[0];
+        const prefix = match[3] || "";
+        const trailing = href.match(/[.,;:!?]+$/)?.[0] || "";
+        href = href.slice(0, href.length - trailing.length);
+        const url = new URL(href, location.origin);
+        if (url.protocol === "https:" || url.protocol === "http:") {
+          const link = document.createElement("a");
+          link.href = url.href;
+          link.textContent = match[1] || href;
+          link.style.cssText = "color:#087b70;text-decoration:underline;overflow-wrap:anywhere";
+          if (url.origin !== location.origin) {
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+          } else {
+            link.addEventListener("click", () => toggle(false));
+          }
+          item.append(document.createTextNode(prefix), link, document.createTextNode(trailing));
+        } else item.append(document.createTextNode(match[0]));
+      }
+      cursor = match.index + match[0].length;
+    }
+    item.append(document.createTextNode(text.slice(cursor)));
+  }
+
   function addMessage(text, role) {
     const item = document.createElement("div");
     item.className = `travel-chat__message travel-chat__message--${role}`;
@@ -119,7 +154,7 @@
       });
       if (!response.ok) throw new Error("Chat unavailable");
       const data = await response.json();
-      pending.textContent = data.answer || copy.unavailable;
+      renderAnswer(pending, data.answer || copy.unavailable);
     } catch {
       pending.textContent = copy.unavailable;
     } finally {
