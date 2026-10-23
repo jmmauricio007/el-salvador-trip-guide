@@ -63,6 +63,7 @@
   const input = root.querySelector("input");
 
   function renderAnswer(item, text) {
+    text = String(text).replace(/&#x20;|&#32;|&nbsp;/gi, " ").replace(/&amp;/g, "&").replace(/\\([\[\]()_*])/g, "$1");
     item.replaceChildren();
     const pattern = /\[([^\]\n]+)\]\((https?:\/\/[^\s)]+|\/(?!\/)[^\s)]*|#[\w-]+)\)|https?:\/\/[^\s<>]+|(^|[\s(])((?:\/(?!\/)[a-zA-Z][\w/?=&%#.-]*|\/#explore|#[\w-]+))|\*\*([^*\n]+)\*\*/g;
     let cursor = 0;
@@ -70,14 +71,15 @@
       item.append(document.createTextNode(text.slice(cursor, match.index)));
       if (match[5]) {
         const strong = document.createElement("strong");
-        strong.textContent = match[5];
+        renderAnswer(strong, match[5]);
         item.append(strong);
       } else {
         let href = match[2] || match[4] || match[0];
         const prefix = match[3] || "";
         const trailing = href.match(/[.,;:!?]+$/)?.[0] || "";
         href = href.slice(0, href.length - trailing.length);
-        const url = new URL(href, location.origin);
+        let url;
+        try { url = new URL(href, location.origin); } catch { item.append(document.createTextNode(match[0])); cursor = match.index + match[0].length; continue; }
         if (url.protocol === "https:" || url.protocol === "http:") {
           const link = document.createElement("a");
           link.href = url.href;
