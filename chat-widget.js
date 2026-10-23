@@ -49,7 +49,7 @@
       <header><div><span aria-hidden="true">🇸🇻</span><strong>${copy.title}</strong><small>EN · ES · FR</small></div><button type="button" class="travel-chat__close" aria-label="${copy.close}">×</button></header>
       <div class="travel-chat__messages" role="log" aria-live="polite"></div>
       <div class="travel-chat__suggestions"></div>
-      <form><label class="sr-only" for="travel-chat-input">${copy.placeholder}</label><input id="travel-chat-input" maxlength="1200" autocomplete="off" placeholder="${copy.placeholder}" required><button type="submit">${copy.send}</button></form>
+      <form><label class="sr-only" for="travel-chat-input">${copy.placeholder}</label><input id="travel-chat-input" maxlength="1200" autocomplete="off" placeholder="${copy.placeholder}" required><button class="travel-chat__mic" type="button" aria-pressed="false" hidden>🎤</button><button type="submit">${copy.send}</button><small class="travel-chat__voice-status" role="status" aria-live="polite" style="flex-basis:100%;font-size:11px;color:#52645e" hidden></small></form>
       <footer><span>${copy.note}</span><a href="https://wa.me/50375778211?text=${encodeURIComponent("Hello, I need help planning a trip to El Salvador.")}" target="_blank" rel="noopener">${copy.whatsapp}</a></footer>
     </section>`;
   document.body.appendChild(root);
@@ -61,6 +61,61 @@
   const suggestions = root.querySelector(".travel-chat__suggestions");
   const form = root.querySelector("form");
   const input = root.querySelector("input");
+
+
+  const mic = root.querySelector(".travel-chat__mic");
+  const sendButton = form.querySelector('button[type="submit"]');
+  const voiceStatus = root.querySelector(".travel-chat__voice-status");
+  form.style.flexWrap = "wrap";
+  mic.style.cssText = "min-width:40px;padding:0 8px";
+  const voiceCopy = {
+    en: {start:"Speak your question",stop:"Stop listening",listening:"Listening…",review:"Review your question, then press Send.",denied:"Microphone access was denied. Allow it in your browser settings or type your question.",error:"Voice input is unavailable. Please try again or type your question.",notice:"Voice recognition uses your browser’s speech service."},
+    es: {start:"Dictar tu pregunta",stop:"Dejar de escuchar",listening:"Escuchando…",review:"Revisa tu pregunta y pulsa Enviar.",denied:"No se permitió el micrófono. Actívalo en tu navegador o escribe tu pregunta.",error:"El dictado no está disponible. Inténtalo de nuevo o escribe tu pregunta.",notice:"El dictado utiliza el servicio de voz de tu navegador."},
+    fr: {start:"Dicter votre question",stop:"Arrêter l’écoute",listening:"Écoute en cours…",review:"Vérifiez votre question, puis appuyez sur Envoyer.",denied:"L’accès au microphone a été refusé. Autorisez-le dans votre navigateur ou écrivez votre question.",error:"La saisie vocale est indisponible. Réessayez ou écrivez votre question.",notice:"La reconnaissance utilise le service vocal de votre navigateur."}
+  }[language] || null;
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let recognition = null, listening = false, voiceBase = "";
+  function showVoiceStatus(text) { voiceStatus.textContent = text; voiceStatus.hidden = !text; }
+  function resetMic() {
+    listening = false;
+    mic.setAttribute("aria-pressed", "false");
+    mic.setAttribute("aria-label", voiceCopy.start);
+    mic.title = voiceCopy.start;
+    mic.textContent = "🎤";
+  }
+  function stopVoice() { if (recognition && listening) recognition.abort(); }
+  if (SpeechRecognition) {
+    mic.hidden = false;
+    resetMic();
+    mic.addEventListener("click", () => {
+      if (input.disabled) return;
+      if (listening) { recognition.stop(); return; }
+      recognition = new SpeechRecognition();
+      recognition.lang = {en:"en-US",es:"es-SV",fr:"fr-CA"}[language] || "en-US";
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      recognition.maxAlternatives = 1;
+      voiceBase = input.value.trim();
+      recognition.onstart = () => {
+        listening = true; mic.textContent = "⏹";
+        mic.setAttribute("aria-pressed", "true");
+        mic.setAttribute("aria-label", voiceCopy.stop);
+        showVoiceStatus(voiceCopy.listening + " " + voiceCopy.notice);
+      };
+      recognition.onresult = event => {
+        const transcript = Array.from(event.results).map(result => result[0].transcript).join(" ");
+        input.value = [voiceBase, transcript.trim()].filter(Boolean).join(" ").slice(0, 1200);
+        showVoiceStatus(voiceCopy.review);
+      };
+      recognition.onerror = event => {
+        showVoiceStatus(["not-allowed","service-not-allowed"].includes(event.error) ? voiceCopy.denied : event.error === "aborted" ? "" : voiceCopy.error);
+        resetMic();
+      };
+      recognition.onend = () => { resetMic(); if (voiceStatus.textContent.startsWith(voiceCopy.listening)) showVoiceStatus(""); };
+      try { recognition.start(); } catch { resetMic(); showVoiceStatus(voiceCopy.error); }
+    });
+  }
+  document.addEventListener("visibilitychange", () => { if (document.hidden) stopVoice(); });
 
   function renderAnswer(item, text) {
     text = String(text).replace(/&#x20;|&#32;|&nbsp;/gi, " ").replace(/&amp;/g, "&").replace(/\\([\[\]()_*])/g, "$1");
@@ -113,6 +168,7 @@
     panel.hidden = !open;
     launcher.setAttribute("aria-expanded", String(open));
     if (open) input.focus();
+    else stopVoice();
   }
 
   launcher.addEventListener("click", () => toggle());
@@ -134,10 +190,13 @@
     event.preventDefault();
     const question = input.value.trim();
     if (!question) return;
+    stopVoice();
+    showVoiceStatus("");
     addMessage(question, "user");
     input.value = "";
     input.disabled = true;
-    form.querySelector("button").disabled = true;
+    sendButton.disabled = true;
+    mic.disabled = true;
     suggestions.hidden = true;
     const pending = addMessage("…", "assistant");
 
@@ -161,7 +220,8 @@
       pending.textContent = copy.unavailable;
     } finally {
       input.disabled = false;
-      form.querySelector("button").disabled = false;
+      sendButton.disabled = false;
+      mic.disabled = false;
       input.focus();
       messages.scrollTop = messages.scrollHeight;
     }
